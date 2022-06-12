@@ -5,9 +5,11 @@ import { getHeroesRequestAction } from '../../actions/actionCreators';
 
 const HeroesList = props => {
     const { heroes, isFetching, error} = props;
+
     useEffect(()=>{
         props.getHeroesRequestAction({limit:5, offset: 0});
     }, [])
+
     const loadMore = () =>{
         props.getHeroesRequestAction({
             offset: heroes.length
@@ -18,11 +20,10 @@ const HeroesList = props => {
       {isFetching && <p>Loading....</p>}
       {error && <p>Some error</p>}
       <button onClick={loadMore}>Load Other SuperHeroes</button>
-      {heroes
-        ? heroes.map(hero => {
+      {heroes.map(hero => {
             return <li key={hero.id}>{JSON.stringify(hero)}</li>;
           })
-        : null}
+       } 
         </div>
     );
 }

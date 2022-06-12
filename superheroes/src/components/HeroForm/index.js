@@ -15,18 +15,18 @@ const HeroForm = props => {
             nickName: '',
             realName: '',
             originDescription: '',
-            superPowers: '', 
-            catchprase: '',
-            images: ''
+            //superPowers: '', 
+            catchPhrase: '',
+            //images: ''
         }} onSubmit={onSubmitForm}>
             <Form>
                 <Field name='nickName' placeholder='Nick name'/>
                 <Field name='realName' placeholder='Real name'/>
                 <Field name='originDescription' placeholder='Origin description'/>
-                <Field name='superPowers' placeholder='Super powers'/>
-                <Field name='catchprase' placeholder='Catchprase'/>
-                <Field name='images' placeholder='Images'/>
-                <button>Submit</button>
+                {/* <Field name='superPowers' placeholder='Super powers'/> */}
+                <Field name='catchPhrase' placeholder='Catch phrase'/>
+                {/* <Field name='images' placeholder='Images'/> */}
+                <button type='submit'>Submit</button>
             </Form>
         </Formik>
         </>

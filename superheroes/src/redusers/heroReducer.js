@@ -20,7 +20,7 @@ export const heroReducer =(state=initState, action)=>{
             return{
                 ...state,
                 heroes: [...heroes, values],
-                isFetching: true
+                isFetching: false
             }
         }
         case ACTION_TYPES.CREATE_HERO_ERROR: {
@@ -28,6 +28,29 @@ export const heroReducer =(state=initState, action)=>{
                ...state, 
                isFetching: false,
                error: action.error
+            }
+        }
+        case ACTION_TYPES.GET_HEROES_REQUEST: {
+            return{
+                ...state,
+                isFetching: true
+            }
+        }
+        case ACTION_TYPES.GET_HEROES_SUCCESS: {
+            const { heroes} = state;
+            const { payload: {heroes: newHeroes}} = action;
+            return{
+                ...state,
+                isFetching: false,
+                heroes: [...heroes, ...newHeroes]
+            }
+        }
+        case ACTION_TYPES.GET_HEROES_ERROR: {
+            const {payload: {error}} = action
+            return{
+                ...state,
+                isFetching: false,
+                error: error
             }
         }
         default: {

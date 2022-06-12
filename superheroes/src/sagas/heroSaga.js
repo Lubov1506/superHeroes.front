@@ -14,3 +14,15 @@ export function * createHeroSaga (action) {
       yield put(ActCreators.cresateHeroErrorAction(error))
   }
 }
+export function* getHeroesSaga (action) {
+  try{
+    const {
+      data: {
+        data:  heroes 
+      }
+    } = yield API.getHeroes(action.payload)
+    yield put(ActCreators.getHeroesSuccessAction(heroes))
+  }catch(error){
+    yield put(ActCreators.getHeroesErrorAction(error))
+  }
+}
