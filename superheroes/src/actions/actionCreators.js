@@ -18,3 +18,28 @@ export const cresateHeroErrorAction = error => {
     error
   }
 }
+export const getHeroesRequestAction = ({ limit, offset }) => {
+  return {
+    type: ACTION_TYPES.GET_HEROES_REQUEST,
+    payload: {
+      limit,
+      offset
+    }
+  }
+}
+export const getHeroesSuccessAction = heroes => {
+  return {
+    type: ACTION_TYPES.GET_HEROES_SUCCESS,
+    payload: {
+      heroes
+    }
+  }
+}
+export const getHeroesErrorAction = error => {
+  return {
+    type: ACTION_TYPES.GET_HEROES_ERROR,
+    payload: {
+      error
+    }
+  }
+}
