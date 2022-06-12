@@ -6,4 +6,4 @@ const ACTION_TYPES = {
     //Power
     }
     
-export default ACTION_TYPES5
+export default ACTION_TYPES

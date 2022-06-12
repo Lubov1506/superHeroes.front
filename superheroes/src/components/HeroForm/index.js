@@ -1,11 +1,36 @@
 import React from 'react';
+import { Formik, Form, Field } from 'formik';
+import { cresateHeroRequestAction } from '../../actions/actionCreators';
+import { connect } from 'react-redux';
 
-const HeroForm = () => {
+const HeroForm = props => {
+    const onSubmitForm = (values) =>{
+        props.cresateHeroRequestAction(values)
+    }
+
     return (
-        <div>
-            
-        </div>
+        <>
+        <h1>Super Hero</h1>
+        <Formik initialValues={{
+            nickName: '',
+            realName: '',
+            originDescription: '',
+            superPowers: '', 
+            catchprase: '',
+            images: ''
+        }} onSubmit={onSubmitForm}>
+            <Form>
+                <Field name='nickName' placeholder='Nick name'/>
+                <Field name='realName' placeholder='Real name'/>
+                <Field name='originDescription' placeholder='Origin description'/>
+                <Field name='superPowers' placeholder='Super powers'/>
+                <Field name='catchprase' placeholder='Catchprase'/>
+                <Field name='images' placeholder='Images'/>
+                <button>Submit</button>
+            </Form>
+        </Formik>
+        </>
     );
 }
 
-export default HeroForm;
+export default connect(null, {cresateHeroRequestAction})(HeroForm);

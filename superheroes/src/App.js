@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import HeroForm from './components/HeroForm';
 import HeroesList from './components/HeloesList';
